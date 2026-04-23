@@ -1,16 +1,15 @@
 import { Agent } from "@mastra/core/agent";
 import { Workspace, LocalFilesystem } from "@mastra/core/workspace";
-import { dirname } from "node:path";
 
-if (!process.env.SCREENSHOT_PATH) {
-	throw new Error("SCREENSHOT_PATH environment variable is not set");
+console.log(process.env.FOLDER_PATH);
+
+if (!process.env.FOLDER_PATH) {
+	throw new Error("FOLDER_PATH environment variable is not set");
 }
-
-const workspaceBasePath = dirname(process.env.SCREENSHOT_PATH);
 
 export const workspace = new Workspace({
 	filesystem: new LocalFilesystem({
-		basePath: workspaceBasePath,
+		basePath: process.env.FOLDER_PATH,
 	}),
 });
 

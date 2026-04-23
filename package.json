@@ -28,6 +28,7 @@
     "@mastra/loggers": "^1.1.1",
     "@mastra/memory": "^1.15.1",
     "@mastra/observability": "^1.9.1",
+    "pdf-parse": "^2.4.5",
     "playwright": "^1.59.1",
     "zod": "^4"
   }
