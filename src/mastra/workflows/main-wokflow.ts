@@ -1,13 +1,16 @@
-// import { createWorkflow } from "@mastra/core/workflows";
-// import { testWorkflow } from "./lidl-pdf-download-workflow";
-// import { findDealsFromPDFS } from "./deal-finder-wokflow";
-// import { z } from "zod";
+import { z } from "zod";
+import { createWorkflow } from "@mastra/core/workflows";
+import { getBroshurePdfsWorkflow } from "./lidl-pdf-download-workflow";
+import { dealFinderWorkflow } from "./deal-finder-wokflow";
+import { mealPlanMaker } from "./meal-plan-makes-workflow";
 
-// export const mainWorkflow = createWorkflow({
-// 	id: "main-workflow",
-// 	description: "The main workflow a wrapper for cleaner look",
-// 	inputSchema: z.object({}),
-// 	outputSchema: z.void({}),
-// })
-// 	.then(testWorkflow)
-// 	.then(findDealsFromPDFS);
+export const mainWorkflow = createWorkflow({
+	id: "main-workflow",
+	description: "The main workflow a wrapper for cleaner look",
+	inputSchema: z.object({}),
+	outputSchema: z.void({}),
+})
+	.then(getBroshurePdfsWorkflow)
+	.then(dealFinderWorkflow)
+	.then(mealPlanMaker)
+	.commit();

@@ -17,7 +17,7 @@ export const carnivoreAgent = new Agent({
 	instructions: `You are helpful deal finder, you goal is to find deals for carnivore diet people.
 	  Aka like eggs on discount and meats only, exclude breaded processed
 			items and from diary only look for eggs nothing else`,
-	model: "google/gemini-3.1-flash-lite-preview",
+	model: "openai/gpt-5.4-mini",
 	workspace,
 });
 
